@@ -1,0 +1,28 @@
+#loading {
+    position: absolute;
+    width: 300px;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -100px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 1px 1px 1px #888888;
+    border-radius: 5px;
+}
+
+#versions {
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: 10px;
+    background-color:rgba(200,200,200,.5);
+}
+
+body {
+    transition:All 1s ease;
+    background-color: #d3d3d3;
+}
