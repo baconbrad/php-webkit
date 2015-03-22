@@ -1,0 +1,29 @@
+<html>
+
+	<head>
+	
+		<title>php-webkit</title>
+		
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		
+		<script src="jquery.min.js"></script>
+	
+	</head>
+	
+	<body>
+	
+		<div id="loading">
+			<p>Application is initializing...</p>
+		</div>
+		
+		<div id="versions">
+		  NW.js v<script>document.write(process.versions['node-webkit']);</script><br>
+		  IO.js/node.js v<script>document.write(process.versions['node']);</script><br>
+		  Chromium <script>document.write(process.versions['chromium']);</script><br>
+		</div>
+	
+		<script src="main.js"></script>
+	
+	</body>
+
+</html>

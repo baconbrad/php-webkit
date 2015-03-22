@@ -1,0 +1,15 @@
+{
+  "name": "php-webkit",
+  "description": "Allows you to run PHP within node-webkit.",
+  "version": "0.1",
+  "main": "./php-webkit/index.html",
+  "node-remote": "<local>",
+  "phpwebkit": {
+  	"host": "127.0.0.1",
+    "port": 9090
+  },
+  "window": {
+    "toolbar": false,
+    "position": "center"
+  }
+}
