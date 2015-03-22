@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The goal of php-webkit is to be able to package a PHP app within a [NW.js](http://nwjs.io/) project without needing the user to install or set up PHP on their system. This repository is what your NW.js project should be set up as to succeed this objective. When your NW.js application is executed node.js starts up an internal PHP web server using the binaries in the php directory. This web server will start up any PHP project you have in the application directory. You can modify php-webkit itself in the associated directory as well as the package.json to fit your application's needs. Just be sure not to change anything that will break php-webkit's ability to run properly. The end result is a PHP desktop application that is also capable of executing node.js code.
+The goal of php-webkit is to be able to package a PHP app within a [NW.js](http://nwjs.io/) project without needing the user to install and set up PHP on their system or connect to a remote PHP codebase. This repository is what your NW.js project should be set up as to succeed this objective. When your NW.js application is executed node.js starts up an internal PHP web server using the binaries in the php directory. This web server will start up any PHP project you have in the application directory. You can modify php-webkit itself in the associated directory as well as the package.json to fit your application's needs. Just be sure not to change anything that will break php-webkit's ability to run properly. The end result is a PHP desktop application that is also capable of executing node.js code.
 
 ## Packaging and Distributing
 
@@ -25,35 +25,21 @@ Node.js code is configured to only be ran on the localhost. Node.js will allow a
 Unless specified elsewhere php-webkit's boilerplate project is released under the MIT License.
 
 The MIT License (MIT)
-
 Copyright (c) 2015 Brad Metcalf (brad@localabstract.com)
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
-
 of this software and associated documentation files (the "Software"), to deal
-
 in the Software without restriction, including without limitation the rights
-
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-
 copies of the Software, and to permit persons to whom the Software is
-
 furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in
-
 all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
-
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-
 THE SOFTWARE.
