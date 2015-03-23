@@ -12,6 +12,18 @@ You can create a PHP desktop app by going to [NW.js](http://nwjs.io/), downloadi
 
 Although it may need a little additonal work you can make a PHP desktop application for Windows, Linux, and OSX. Currently the binaries for PHP are version 5.6 32-bit thread safe binaries. But you can switch it out with a different version/platform found at [PHP.net](http://php.net/) or elsewhere. Linux and OSX versions have a slightly different file structure and so far a packaging scheme has not been decided. As a result a call is made for php-cgi opposed to a determined project directory. This requires a seperate install of PHP for Linux and OSX until this is resolved. Have suggestions? Do feel free to share.
 
+## Server Variables
+
+You can access basic details about your php-webkit/NW.js project via PHP's server variables. These are injected when the server is spun up so they do not require a special build of PHP to obtain.
+ 
+ * ```$_SERVER["PW_BIN_PATH"]``` - Path of NW.js binary
+ * ```$_SERVER["PW_BIN_FILE"]``` - File nane of NW.js binary
+ * ```$_SERVER["PW_APP_PATH"]``` - Path of PHP application
+ * ```$_SERVER["PW_ARGUMENTS"]``` - Arguments sent to NW.js binary
+ * ```$_SERVER["PW_MANIFEST"]``` - JSON object of package.json
+ * ```$_SERVER["PW_SERVER_HOST"]``` - Host the server is running under
+ * ```$_SERVER["PW_SERVER_PORT"]``` - Port the server is running under
+
 ## Security Notice
 
 Some things should be noted. This was created as a boilerplater within a weekend. The idea was to get it to work. Although set up to not be accessable remotely the internal server and PHP config were not given any additional security modifications. It is ultimately up to you to ensure your web app's security is intact.
