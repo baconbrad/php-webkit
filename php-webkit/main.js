@@ -17,8 +17,16 @@ if(port === undefined) {
 	port = 9090;
 }
 
+var phpinfo = {
+	"path": "./application",
+	"host": host,
+	"port": port,
+	"arguments": gui.App.argv,
+	"manifest": gui.App.manifest
+};
+
 var server = http.createServer(app);
-app.use('/', php.cgi('./application'));
+app.use('/', php.cgi(phpinfo));
 server.listen(port, host);
 
 var url = 'http://'+host+':'+port+'/';
