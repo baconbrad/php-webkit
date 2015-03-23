@@ -10,7 +10,7 @@ You can create a PHP desktop app by going to [NW.js](http://nwjs.io/), downloadi
 
 ## Multiple Platforms
 
-Although it may need a little additonal work you can make a PHP desktop application for Windows, Linux, and OSX. Currently the binaries for PHP are version 5.6 32-bit thread safe binaries. But you can switch it out with a different version/platform found at [PHP.net](http://php.net/) or elsewhere. Linux and OSX versions have a slightly different file structure and so far a packaging scheme has not been decided. As a result a call is made for php-cgi opposed to a determined project directory. This requires a seperate install of PHP for Linux and OSX until this is resolved. Have suggestions? Do feel free to share.
+Although it may need a little additonal work you can make a PHP desktop application for Windows, Linux, and OSX. Currently the binaries for PHP are version 5.6 32-bit thread safe binaries for Windows. But you can switch it out with a different version/platform found at [PHP.net](http://php.net/) or elsewhere. Linux and OSX versions have a slightly different file structure and so far a packaging scheme has not been decided. As a result a call is made for php-cgi opposed to a determined project directory. This requires a seperate install of PHP for Linux and OSX until this is resolved. Have suggestions? Do feel free to share.
 
 ## Server Variables
 
@@ -38,6 +38,7 @@ Unless specified elsewhere php-webkit's boilerplate project is released under th
 
 The MIT License (MIT)
 Copyright (c) 2015 Brad Metcalf (brad@localabstract.com)
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
