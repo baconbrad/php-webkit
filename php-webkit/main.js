@@ -1,8 +1,8 @@
 var gui = require('nw.gui');
 var win = gui.Window.get();
 var http = require('http');
-var php = require('./node_modules/node-php');
-var express = require('./node_modules/express');
+var php = require('node-php');
+var express = require('express');
 var app = express();
 
 win.title = gui.App.manifest.name;
