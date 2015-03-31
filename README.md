@@ -6,7 +6,7 @@ The goal of php-webkit is to be able to package a PHP app within a [NW.js](http:
 
 ## Packaging and Distributing
 
-You can create a PHP desktop app by going to [NW.js](http://nwjs.io/), downloading your target machines files, and following the [packaging instructions provided by NW.js](https://github.com/nwjs/nw.js/wiki/How-to-package-and-distribute-your-apps) using the files you found here as your NW.js project directory.
+You can create a PHP desktop app by going to [NW.js](http://nwjs.io/), downloading your target machines files, and following the [packaging instructions provided by NW.js](https://github.com/nwjs/nw.js/wiki/How-to-package-and-distribute-your-apps) using the files you found here as your NW.js project directory. [Express](https://www.npmjs.com/package/express) is a required dependency for this project.
 
 ## Multiple Platforms
 
