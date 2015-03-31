@@ -5,8 +5,10 @@
   "main": "./php-webkit/index.html",
   "node-remote": "<local>",
   "phpwebkit": {
-  	"host": "127.0.0.1",
-    "port": 9090
+  	"bin": "", //The location of your php-cgi binary
+  	"path": "./application", //The path to your PHP application
+  	"host": "127.0.0.1", //The host the PHP app runs on
+    "port": 9090 //The port the PHP app runs on
   },
   "window": {
     "toolbar": false,
