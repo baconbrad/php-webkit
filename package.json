@@ -2,6 +2,9 @@
   "name": "php-webkit",
   "description": "Allows you to run PHP within node-webkit.",
   "version": "0.1",
+"dependencies":{
+  "express":"4.*.*"
+  },
   "main": "./php-webkit/index.html",
   "node-remote": "<local>",
   "phpwebkit": {
@@ -10,6 +13,7 @@
   	"host": "127.0.0.1", //The host the PHP app runs on
     "port": 9090 //The port the PHP app runs on
   },
+  "license":"MIT",
   "window": {
     "toolbar": false,
     "position": "center"
