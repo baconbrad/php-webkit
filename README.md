@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The goal of php-webkit is to be able to package a PHP app within a [NW.js](http://nwjs.io/) project without needing the user to install and set up PHP on their system or connect to a remote PHP codebase. This repository is what your NW.js project should be set up as to succeed this objective. When your NW.js application is executed node.js starts up an internal PHP web server using the binaries in the php directory. This web server will start up any PHP project you have in the application directory. You can modify php-webkit itself in the associated directory as well as the package.json to fit your application's needs. Just be sure not to change anything that will break php-webkit's ability to run properly. The end result is a PHP desktop application that is also capable of executing node.js code.
+The goal of php-webkit is to be able to package a PHP app within a [NW.js](http://nwjs.io/) project without needing the user to install and set up PHP on their system or connect to a remote PHP codebase. This repository is what your NW.js project should be set up as to succeed this objective. When your NW.js application is executed node.js starts up an internal PHP web server using the binaries in the php directory. This web server will start up any PHP project you have in the application directory. You can modify php-webkit's files as well as the ```package.json``` to fit your application's needs. Just be cautious not to change anything that will break php-webkit's ability to run properly. The end result is a PHP desktop application that is also capable of executing node.js code.
 
 ## Packaging and Distributing
 
@@ -10,7 +10,13 @@ You can create a PHP desktop app by going to [NW.js](http://nwjs.io/), downloadi
 
 ## Multiple Platforms
 
-Although it may need a little additonal work you can make a PHP desktop application for Windows, Linux, and OSX. Currently the binaries for PHP are version 5.6 32-bit thread safe binaries for Windows. But you can switch it out with a different version/platform found at [PHP.net](http://php.net/) or elsewhere. Linux and OSX versions have a slightly different file structure and so far a packaging scheme has not been decided. As a result a call is made for php-cgi opposed to a determined project directory. This requires a seperate install of PHP for Linux and OSX until this is resolved. Have suggestions? Do feel free to share.
+Although it may need a little additonal work you can make a PHP desktop application for Windows, Linux, and OSX. Currently the binaries for PHP are version 5.6 32-bit thread safe binaries for Windows. But you can switch it out with a different version/platform found at [PHP.net](http://php.net/) or elsewhere. Linux and OSX versions have a slightly different file structure and so far a packaging scheme has not been decided so you will need to come up with your own. Have suggestions? Do feel free to share.
+
+(I have not tested it on any ARM based builds of NW.js but I don't see why it couldn't work.)
+
+## Packaging PHP Optional
+
+You may wish to use PHP within a NW.js project but don't want to package it within your application binary. You can either move it outside the directory or use the machines installed version of PHP if applicable. If you want to move it to another folder specify the new location as ```bin``` in your ```package.json```. It can even be outside of your project directory. If PHP is installed properly you can simply put ```php-cgi``` in this field instead. Don't forget to delete the existing php directory to save on hard disk space and make unpacking faster.
 
 ## Server Variables
 
