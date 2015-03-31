@@ -1,0 +1,29 @@
+{
+  "node": true,
+  "esnext": true,
+  "camelcase": false,
+  "curly": true,
+"-W041": false,
+  "immed": true,
+  "indent": 2,
+  "latedef": false,
+  "newcap": true,
+  "noarg": true,
+  "regexp": true,
+  "undef": false,
+  "unused": false,
+  "trailing": true,
+  "smarttabs": true,
+  "white": true,
+  "globals": {
+    /* Mocha */
+    "describe": false,
+    "it": false,
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false,
+    /* Lodash / Underscore */
+    "_": false
+  }
+}
