@@ -3,7 +3,7 @@
   "description": "Allows you to run PHP within node-webkit.",
   "version": "0.0.1",
   "dependencies":{
-    "express":"*"
+    "express":"4.*.*"
   },
   "scripts": {
     "test": "./node_modules/gulp/bin/gulp.js test"
