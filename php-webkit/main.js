@@ -7,6 +7,10 @@ var app = express();
 var os = require('os');
 var os = os.platform();
 
+process.on('uncaughtException', function(err){
+  changeState('<strong>'+err+'</strong>', '#CD0000');
+});
+
 win.title = gui.App.manifest.name;
 
 var bin = gui.App.manifest.phpwebkit.bin;
@@ -34,7 +38,7 @@ if(host === undefined || host == "") {
 
 var port = gui.App.manifest.phpwebkit.port;
 if(port === undefined || port == "") {
-	port = 9090;
+	port = 0;
 }
 
 var phpinfo = {
@@ -47,20 +51,22 @@ var phpinfo = {
 };
 
 var server = http.createServer(app);
+
 app.use('/', php.cgi(phpinfo));
-server.listen(port, host);
 
-var url = 'http://'+host+':'+port+'/';
+server.listen(port, host, function(){
+	var url = 'http://'+host+':'+server.address().port+'/';
 
-http.get(url, function(res) {
-	if(res.statusCode == 200) {
-		changeState('Starting application...', '#00CD00');
-	} else {
-		changeState('Starting application with error code '+res.statusCode, '#FCD116');
-	}
-    window.location = url;
-}).on('error', function(e) {
-	changeState('<strong>ERROR: '+e.message+'</strong>', '#CD0000');
+	http.get(url, function(res) {
+		if(res.statusCode == 200) {
+			changeState('Starting application...', '#00CD00');
+		} else {
+			changeState('Starting application with error code '+res.statusCode, '#FCD116');
+		}
+	    	window.location = url;
+	}).on('error', function(e) {
+		changeState('<strong>ERROR: '+e.message+'</strong>', '#CD0000');
+	});
 });
 
 function changeState(msg, color){
