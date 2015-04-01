@@ -1,5 +1,7 @@
 # PHP-WEBKIT
 
+[![Join the chat at https://gitter.im/baconface/php-webkit](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/baconface/php-webkit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Introduction
 
 The goal of php-webkit is to be able to package a PHP app within a [NW.js](http://nwjs.io/) project without needing the user to install and set up PHP on their system or connect to a remote PHP codebase. This repository is what your NW.js project should be set up as to succeed this objective. When your NW.js application is executed node.js starts up an internal PHP web server using the binaries in the php directory. This web server will start up any PHP project you have in the application directory. You can modify php-webkit's files as well as the ```package.json``` to fit your application's needs. Just be cautious not to change anything that will break php-webkit's ability to run properly. The end result is a PHP desktop application that is also capable of executing node.js code.
