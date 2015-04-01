@@ -54,19 +54,12 @@ var server = http.createServer(app);
 
 app.use('/', php.cgi(phpinfo));
 
-server.listen(port, host, function(){
+server.listen(port, host, function(res){
 	var url = 'http://'+host+':'+server.address().port+'/';
-
-	http.get(url, function(res) {
-		if(res.statusCode == 200) {
-			changeState('Starting application...', '#00CD00');
-		} else {
-			changeState('Starting application with error code '+res.statusCode, '#FCD116');
-		}
-	    	window.location = url;
-	}).on('error', function(e) {
-		changeState('<strong>ERROR: '+e.message+'</strong>', '#CD0000');
-	});
+	changeState('Starting application...', '#00CD00');
+	window.location = url;
+}).on('error', function(e) {
+	changeState('<strong>ERROR: '+e.message+'</strong>', '#CD0000');
 });
 
 function changeState(msg, color){
