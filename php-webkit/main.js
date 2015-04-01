@@ -54,12 +54,12 @@ var server = http.createServer(app);
 
 app.use('/', php.cgi(phpinfo));
 
-server.listen(port, host, function(res){
+server.listen(port, host, function(){
 	var url = 'http://'+host+':'+server.address().port+'/';
 	changeState('Starting application...', '#00CD00');
 	window.location = url;
 }).on('error', function(e) {
-	changeState('<strong>ERROR: '+e.message+'</strong>', '#CD0000');
+	changeState('<strong>Error: '+e.message+'</strong>', '#CD0000');
 });
 
 function changeState(msg, color){
