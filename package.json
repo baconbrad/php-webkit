@@ -6,7 +6,7 @@
     "express":"4.*.*"
   },
   "scripts": {
-    "test": "./node_modules/gulp/bin/gulp.js test"
+    "test":"node ./node_modules/gulp/bin/gulp.js test"
   },
   "devDependencies": {
     "mocha": "1.*",
