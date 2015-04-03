@@ -40,7 +40,7 @@ var phpwebkit = {
 
 		var host = gui.App.manifest.phpwebkit.host;
 		if(host === undefined || host == "") {
-			host = '127.0.0.1';
+			host = 'localhost';
 		}
 
 		var port = gui.App.manifest.phpwebkit.port;
