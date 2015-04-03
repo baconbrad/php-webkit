@@ -1,6 +1,7 @@
 var gui = require('nw.gui');
 var win = gui.Window.get();
 var http = require('http');
+var fs = require('fs');
 var php = require('../lib/bridge');
 var express = require('express');
 var app = express();
@@ -16,15 +17,19 @@ win.title = gui.App.manifest.name;
 var bin = gui.App.manifest.phpwebkit.bin;
 if(bin === undefined || bin == "") {
 	if(os == 'win32' || os == 'win64') {
-		bin = './php/php-cgi.exe';
+		bin = './bin/php/php-cgi.exe';
 	} else if(os == 'darwin') {
-		bin = './php/php-cgi';
+		bin = './bin/php/php-cgi';
 	} else if(os == 'linux') {
-		bin = './php/php-cgi';
+		bin = './bin/php/php-cgi';
 	} else {
 		bin = 'php-cgi';
 	}
 }
+
+binExists(bin, function(filename){ 
+	bin = filename;
+});
 
 var path = gui.App.manifest.phpwebkit.path;
 if(path === undefined || path == "") {
@@ -65,4 +70,14 @@ server.listen(port, host, function(){
 function changeState(msg, color){
 	$('body').css('background-color', color);
 	$('#loading p').html(msg);
+}
+
+function binExists(file, callback){
+	fs.stat(bin, function(err, stats) { 
+		if(!err && stats.isFile()) { 
+			return stats.filename;
+		} else {
+			return 'php-cgi';
+		}
+	});
 }

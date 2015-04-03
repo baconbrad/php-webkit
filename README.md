@@ -18,7 +18,7 @@ Although it may need a little additonal work you can make a PHP desktop applicat
 
 ## Optional PHP Packaging
 
-You may wish to use PHP within a NW.js project but don't want to package it within your application binary. You can either move it outside the directory or use the machines installed version of PHP if applicable. If you want to move it to another folder specify the new location as ```bin``` in your ```package.json```. It can even be outside of your project directory. If PHP is installed properly you can simply put ```php-cgi``` in this field instead. Don't forget to delete the existing php directory to save on hard disk space and make unpacking faster.
+You may wish to use PHP within a NW.js project but don't want to package it within your application binary. You can either move it outside the directory or use the machines installed version of PHP if applicable. If you want to move it to another folder specify the new location as ```bin``` in your ```package.json```. It can even be outside of your project directory. If PHP is installed properly you can simply put ```php-cgi``` in this field instead. If no binaries are found in the PHP directory php-webkit will attempt to call ```php-cgi``` as a last resort to run your application.
 
 ## Server Variables
 

@@ -18,3 +18,7 @@ node-debug.log
 
 *.log
 *.gz
+
+# PHP directory
+bin/php/*
+!bin/php/README.md
