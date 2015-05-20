@@ -9,9 +9,6 @@ var phpwebkit = {
 		var pw = this;
 
 		process.on('uncaughtException', function(err){
-			if(err == "Error: spawn php-cgi ENOENT") {
-				err = "Error: PHP doesn't appear to be installed";
-			}
 			pw.changeState('<strong>'+err+'</strong>', '#CD0000');
 		});
 
@@ -30,6 +27,12 @@ var phpwebkit = {
 			}
 		}
 
+		this.fileExists(bin, function(result){
+			if(result === false) { 
+				return 'php-cgi';
+			}
+		});
+
 		var path = gui.App.manifest.phpwebkit.path;
 		if(path === undefined || path == "") {
 			path = './application';
@@ -45,22 +48,16 @@ var phpwebkit = {
 			port = 0;
 		}
 
-		this.fileExists(bin, function(result){
-			if(result === false) { 
-				bin = 'php-cgi';
-			}
+		var config = {
+			"path": path,
+			"bin": bin,
+			"host": host,
+			"port": port,
+			"arguments": gui.App.argv,
+			"manifest": gui.App.manifest
+		}
 
-			var config = {
-				"path": path,
-				"bin": bin,
-				"host": host,
-				"port": port,
-				"arguments": gui.App.argv,
-				"manifest": gui.App.manifest
-			}
-
-			phpwebkit.startServer(config);
-		});
+		this.startServer(config);
 	},
 
 	startServer: function(config, callback){
@@ -81,7 +78,7 @@ var phpwebkit = {
 			pw.changeState('Starting application...', '#00CD00');
 			window.location = 'http://'+host+':'+server.address().port +'/';
 		}).on('error', function(err) {
-			pw.changeState('<strong>Error: '+err+'</strong>', '#CD0000');
+			pw.changeState('<strong>Error: '+server.err+'</strong>', '#CD0000');
 		});
 	},
 
@@ -96,9 +93,9 @@ var phpwebkit = {
 		var fs = require('fs');
 		fs.stat(file, function(err, stats) { 
 			if(!err && stats.isFile()) { 
-				callback(true);
+				return true;
 			} else {
-				callback(false);
+				return false;
 			}
 		});
 	}
