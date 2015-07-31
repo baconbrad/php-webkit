@@ -27,9 +27,11 @@ var phpwebkit = {
 				bin = 'php-cgi';
 			}
 		}
-
-        // set the permissions to be able to execute
-        fs.chmodSync(process.cwd() + bin.slice(1), 0755);
+        var path = process.cwd() + bin.slice(1);
+        if(fs.existsSync(path)){
+            // set the permissions to be able to execute
+            fs.chmodSync(path, 0755);
+        }
 
 		this.fileExists(bin, function(result){
 			if(result === false) { 
