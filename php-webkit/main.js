@@ -7,6 +7,7 @@ var phpwebkit = {
 		var os = require('os');
 		var os = os.platform();
 		var pw = this;
+        var fs = require('fs');
 
 		process.on('uncaughtException', function(err){
 			pw.changeState('<strong>'+err+'</strong>', '#CD0000');
@@ -26,6 +27,11 @@ var phpwebkit = {
 				bin = 'php-cgi';
 			}
 		}
+        var path = process.cwd() + bin.slice(1);
+        if(fs.existsSync(path)){
+            // set the permissions to be able to execute
+            fs.chmodSync(path, 0755);
+        }
 
 		this.fileExists(bin, function(result){
 			if(result === false) { 
